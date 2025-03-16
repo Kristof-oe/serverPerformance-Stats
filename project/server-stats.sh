@@ -19,3 +19,11 @@ df -h | awk '{gsub("%", "", $5); print $5, "%", 100-$5 "%"}'
 echo("#############")
 echo("5 process by cpu usage")
 
+top -bn2 | grep "Cpu(s)" -A 20 | sort -k 3 -n -r | head -n 5
+
+echo '###############'
+echo '5 procces by memory usage'
+
+ps aux --sort=-%mem | head -n 5
+
+
